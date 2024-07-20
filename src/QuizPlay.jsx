@@ -1,6 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { doc, getDoc, getDocs, collection } from "firebase/firestore";
+import {
+	doc,
+	getDoc,
+	getDocs,
+	collection,
+	updateDoc,
+} from "firebase/firestore";
 import { Link } from "react-router-dom";
 
 import db from "./firebase";
@@ -42,7 +48,7 @@ function QuizPlay() {
 			// this now gets called when the component unmounts
 		};
 	}, []);
-	function optionPress(e) {
+	async function optionPress(e) {
 		// switch(e.target.id)
 		console.log(e.target.id);
 		var selectedOption = e.target.id.substring(
@@ -61,6 +67,10 @@ function QuizPlay() {
 			// end quiz
 			setQuizOver(true);
 			// increment quiz plays
+			const docRef = doc(db, "quizzes", params.quizID);
+			await updateDoc(docRef, {
+				plays: quizInfo.plays + 1,
+			});
 		}
 	}
 	function nextQuestion() {
@@ -72,7 +82,9 @@ function QuizPlay() {
 		}
 	}
 
-	// function nextQuestion() {}
+	// function retakeQuiz() {
+
+	// }
 
 	return (
 		<div>

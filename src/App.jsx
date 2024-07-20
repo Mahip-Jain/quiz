@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import QuizPlay from "./QuizPlay";
 import QuizNotFound from "./QuizNotFound";
 import Home from "./Home";
+import NewQuiz from "./NewQuiz";
 
 function App() {
 	return (
@@ -12,6 +13,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />}></Route>
 					<Route path="/quiz/:quizID" element={<QuizPlay />}></Route>
+					<Route path="/new-quiz" element={<NewQuiz />}></Route>
 					<Route path="*" element={<QuizNotFound />}></Route>
 				</Routes>
 			</Router>
