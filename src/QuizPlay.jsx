@@ -94,7 +94,7 @@ function QuizPlay() {
 				<div className="quiz-display">
 					{/* question */}
 					<h1>
-						{currentQuestionNumber - 1}. {questions[currentQuestionNumber]?.text}
+						{currentQuestionNumber + 1}. {questions[currentQuestionNumber]?.text}
 					</h1>
 					{/* options */}
 					<div className="options">

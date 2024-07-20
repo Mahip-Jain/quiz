@@ -74,9 +74,9 @@ function Home() {
 			<h1>Quizzes</h1>
 			{/* Quiz Cards */}
 			<div className="quizcards">
-				{quizzes.map((quiz, key) => {
-					return <QuizCard props={quiz} key={key}></QuizCard>;
-				})}
+				{quizzes.map((quiz, key) => (
+					<QuizCard props={quiz} key={key}></QuizCard>
+				))}
 			</div>
 		</div>
 	);
