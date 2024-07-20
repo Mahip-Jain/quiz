@@ -28,12 +28,14 @@ function QuizPlay() {
 			}
 			const questionsCollectionRef = collection(docRef, "questions");
 			const querySnapshot = await getDocs(questionsCollectionRef);
+			var q = [];
 			querySnapshot.forEach((doc) => {
 				// doc.data() is never undefined for query doc snapshots
 				console.log(doc.id, " => ", doc.data());
-				setQuestions([...questions, doc.data()]);
 				// console.log(([...questions, doc.data()][0].que)
+				q.push(doc.data());
 			});
+			setQuestions(q);
 		})();
 
 		return () => {
